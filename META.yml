@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name: WWW-Restaurant-Menu
-version: 0.1
+version: 0.11
 author:
   - Julian Mehnle <julian@mehnle.net>
 abstract: |-
@@ -8,33 +8,32 @@ abstract: |-
   of restaurants.
 license: perl
 requires:
+  Encode: 0
+  LWP: 0
   perl: 5.8
 recommends:
-  Encode: 0
-  HTML::HeadParser: 0
   HTML::TableExtract: 0
   HTML::TableExtract::Raw: 0
-  LWP: 0
 provides:
   WWW::Restaurant::DE::Munich::Edison::Menu::Lunch:
     file: lib/WWW/Restaurant/DE/Munich/Edison/Menu/Lunch.pm
-    version: 0.1
+    version: 0.11
   WWW::Restaurant::Menu:
     file: lib/WWW/Restaurant/Menu.pm
-    version: 0.1
+    version: 0.11
   WWW::Restaurant::Menu::Item:
     file: lib/WWW/Restaurant/Menu/Item.pm
-    version: 0.1
+    version: 0.11
   WWW::Restaurant::Menu::Item::Dessert:
     file: lib/WWW/Restaurant/Menu/Item.pm
-    version: 0.1
+    version: 0.11
   WWW::Restaurant::Menu::Item::Drink:
     file: lib/WWW/Restaurant/Menu/Item.pm
-    version: 0.1
+    version: 0.11
   WWW::Restaurant::Menu::Item::Meal:
     file: lib/WWW/Restaurant/Menu/Item.pm
-    version: 0.1
+    version: 0.11
   WWW::Restaurant::Menu::Item::Starter:
     file: lib/WWW/Restaurant/Menu/Item.pm
-    version: 0.1
-generated_by: Module::Build version 0.24
+    version: 0.11
+generated_by: Module::Build version 0.26

@@ -1,9 +1,8 @@
 #
 # WWW::Restaurant::DE::Munich::Edison::Menu::Lunch class
 #
-# (C) 2004 Julian Mehnle <julian@mehnle.net>
-#
-# $Id: Lunch.pm,v 1.4 2004/04/12 18:25:46 julian Exp $
+# (C) 2004-2005 Julian Mehnle <julian@mehnle.net>
+# $Id: Lunch.pm,v 1.8 2005/01/15 15:47:55 julian Exp $
 #
 ##############################################################################
 
@@ -18,23 +17,22 @@ package WWW::Restaurant::DE::Munich::Edison::Menu::Lunch;
 
 =head1 VERSION
 
-0.1
+0.11
 
 =cut
 
-our $VERSION = 0.1;
+our $VERSION = '0.11';
 
 use v5.8;
 
 use utf8;
 use warnings;
-#use diagnostics;
 use strict;
 
 use base qw(WWW::Restaurant::Menu);
 
 use LWP;
-use HTML::HeadParser;
+#use HTML::HeadParser;
 use HTML::TableExtract;
 use HTML::TableExtract::Raw;
 use Encode;
@@ -90,14 +88,7 @@ L<http://www.edisonundco.de/mittag.htm>.
 
 =cut
 
-# Actors:
-########################################
-
-sub new;
-
-# Accessors:
-########################################
-
+sub currency;
 sub raw;
 
 # Implementation:
@@ -138,6 +129,12 @@ instance methods.
 
 Returns "\x{20ac}" (Euro Sign).
 
+=cut
+
+sub currency {
+    return "€";
+}
+
 =item B<raw>: RETURNS SCALAR
 
 Returns a string containing the relevant raw HTML part of the lunch menu web
@@ -159,7 +156,6 @@ sub raw {
 
 sub query {
     my ($self) = @_;
-    $self->get();
     $self->parse();
     return @{ $self->{items} };
 }
@@ -167,8 +163,15 @@ sub query {
 sub parse {
     my ($self) = @_;
     
-    my $table_extractor = HTML::TableExtract->new(SOURCE_DATA_TABLE_COORDS_RELATIVE);
-    $table_extractor->parse($self->raw);
+    # Ugly hack for suppressing invisible text:
+    my $raw = $self->raw;
+    $raw =~ s/<font\s+[^>]*\bcolor=("?)#ffffff\b\1[^>]*>.*?<\/font>//gis;
+    
+    my $table_extractor = HTML::TableExtract->new(
+        SOURCE_DATA_TABLE_COORDS_RELATIVE,
+        keep_html   => TRUE
+    );
+    $table_extractor->parse($raw);
     
     my @items;
     
@@ -178,8 +181,14 @@ sub parse {
         
         next if not $columns[0];
         
+        $columns[0] =~ s/^\d+-//;
+        
         my $name  = $columns[0] . $columns[1];
         my $price = $columns[2] =~ /(\d+)[,\.](\d{2})/ ? "$1.$2" : undef;
+        
+        # Work around HTML::TableExtract Unicode deficiency? (Probably not needed.)
+        #$name  = Encode::decode_utf8($name);
+        #$price = Encode::decode_utf8($price);
         
         my $class;
         $class = (MENU_ITEM_STAGES)[  $stage];
@@ -211,13 +220,17 @@ sub get {
     
     my $page = $response->content;
     
-    my $head_parser = HTML::HeadParser->new();
-    $head_parser->parse($page);
-    
     my $encoding;
-    ($encoding) = ($head_parser->header->content_type)[1] =~ /\bcharset=([\w-]+)/i;
-    ($encoding) = ($response->content_type)[1]            =~ /\bcharset=([\w-]+)/i
-        if not defined($encoding);
+    
+    #my $head_parser = HTML::HeadParser->new();
+    #$head_parser->parse($page);
+    #($encoding) = ($head_parser->header->content_type)[1] =~ /\bcharset=([\w-]+)/i;
+    #($encoding) = ($response->content_type)[1]            =~ /\bcharset=([\w-]+)/i
+    #    if not defined($encoding);
+    
+    # Override automatic charset recognition, as the Edison-provided charset is b0rken:
+    $encoding = 'windows-1252';
+    
     $page = Encode::decode($encoding, $page) if defined($encoding);
     
     my $table_extractor;
@@ -226,7 +239,11 @@ sub get {
     $table_extractor->parse($page);
     
     my $raw = $table_extractor->html;
-    $raw =~ s/height=["']?[456789]\d\d["']?//g;
+    
+    # Work around HTML::TableExtract::Raw Unicode deficiency:
+    $raw = Encode::decode_utf8($raw);
+    
+    $raw =~ s/height=["']?[456789]\d\d["']?//gi;
     
     return $self->{raw} = $raw;
 }
@@ -238,6 +255,7 @@ sub user_agent {
 
 sub trim_text {
     my ($self, $text) = @_;
+    $text =~ s/<.*?>//sg;  # Remove all HTML tags.
     $text =~ s/\.{2,}//sg;
     $text =~ s/\x{a0}/ /g;
     $text =~ s/^\s*|\s*$//sg;

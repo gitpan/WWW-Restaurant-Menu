@@ -1,9 +1,8 @@
 #
 # WWW::Restaurant::Menu::Item class
 #
-# (C) 2004 Julian Mehnle <julian@mehnle.net>
-#
-# $Id: Item.pm,v 1.4 2004/04/12 18:27:44 julian Exp $
+# (C) 2004-2005 Julian Mehnle <julian@mehnle.net>
+# $Id: Item.pm,v 1.6 2005/01/15 15:48:35 julian Exp $
 #
 ##############################################################################
 
@@ -18,14 +17,13 @@ package WWW::Restaurant::Menu::Item;
 
 =head1 VERSION
 
-0.1
+0.11
 
 =cut
 
-our $VERSION = 0.1;
+our $VERSION = '0.11';
 
 use warnings;
-#use diagnostics;
 use strict;
 
 # Constants:

@@ -1,9 +1,8 @@
 #
 # WWW::Restaurant::Menu class
 #
-# (C) 2004 Julian Mehnle <julian@mehnle.net>
-#
-# $Id: Menu.pm,v 1.4 2004/04/12 18:23:16 julian Exp $
+# (C) 2004-2005 Julian Mehnle <julian@mehnle.net>
+# $Id: Menu.pm,v 1.6 2005/01/15 15:47:06 julian Exp $
 #
 ##############################################################################
 
@@ -18,14 +17,13 @@ package WWW::Restaurant::Menu;
 
 =head1 VERSION
 
-0.1
+0.11
 
 =cut
 
-our $VERSION = 0.1;
+our $VERSION = '0.11';
 
 use warnings;
-#use diagnostics;
 use strict;
 
 use UNIVERSAL qw(isa);

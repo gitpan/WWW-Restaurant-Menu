@@ -1,9 +1,8 @@
 #
 # WWW::Restaurant::Menu::Overview
 #
-# (C) 2004 Julian Mehnle <julian@mehnle.net>
-#
-# $Id: Overview.pod,v 1.1 2004/04/12 18:28:25 julian Exp $
+# (C) 2004-2005 Julian Mehnle <julian@mehnle.net>
+# $Id: Overview.pod,v 1.3 2005/01/15 16:04:23 julian Exp $
 #
 ##############################################################################
 
@@ -98,8 +97,8 @@ L<WWW::Restaurant::Menu>, L<WWW::Restaurant::Menu::Item>
 
 =head1 COPYRIGHT and LICENSE
 
-WWW::Restaurant::Menu is Copyright (C) 2004 Julian Mehnle <julian@mehnle.net>.
-All rights reserved.
+WWW::Restaurant::Menu is Copyright (C) 2004-2005 Julian Mehnle
+<julian@mehnle.net>.  All rights reserved.
 
 WWW::Restaurant::Menu is free software.  You may use, modify, and distribute it
 under the same terms as Perl itself, i.e. under the GNU GPL or the Artistic

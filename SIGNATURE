@@ -14,20 +14,26 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 bbfaf94887478a1e5005db1be6df03fcf0089a57 Build.PL
-SHA1 0da2dfdcbe6a2666c057c526f08fefbc92e2febd CHANGES
-SHA1 aeee938cd40b41d421cd21d4abda7a738544b72f MANIFEST
-SHA1 13e6d36e41333271b0df0f526dea571be6bf27b9 META.yml
-SHA1 7e9e2553e95913392d02f7841987ce8b9fb01d1d Makefile.PL
-SHA1 cd710479e765af03e168c19e1fe132a69d07b359 README
-SHA1 20d05e9c9c7ac0d9a1c418c9189ec3f6a8a6da73 lib/WWW/Restaurant/DE/Munich/Edison/Menu/Lunch.pm
-SHA1 700d1a46014f9f6610de8c635009ae1ea491bd21 lib/WWW/Restaurant/Menu.pm
-SHA1 c9a3d0b0058024ba805334c6054d2a0574585eaf lib/WWW/Restaurant/Menu/Item.pm
-SHA1 daacba8116f5845d7dbd8fe2374fcfc8bff5b235 lib/WWW/Restaurant/Menu/Overview.pod
+SHA1 2f68aa64ec817ce78107a7d1f3418136012faa2f Build.PL
+SHA1 a30fdea1a5e8675221256ece6fb9ff53e86b3865 CHANGES
+SHA1 797f9e110f861c7a94e7fc9efe925171fdcdd4ce MANIFEST
+SHA1 3ffd8702b21efb7035193d7ebed15b85dcccbef7 META.yml
+SHA1 a359d4072690a21ce63e4b393bdbc19d72b6be5a Makefile.PL
+SHA1 850c50b63286418cdb20077b2ca12e1edf8ccafe README
+SHA1 9d2b3a3342151b9609a674fe67b3d99be5da13c8 TODO
+SHA1 b55ae2a843f465db42b5c2e4ba2e89df692316bc debian/changelog
+SHA1 9c6b057a2b9d96a4067a749ee3b3b0158d390cf1 debian/compat
+SHA1 34d4da849ce6ae6e6ad036106f29ad286328ea75 debian/control
+SHA1 e828a052b9833e49a89bdd1bc997b7e77cb5aa70 debian/copyright
+SHA1 f07d3cc654d62025ba37a53a83db9cf3aa21fede debian/rules
+SHA1 db13ebae6b7e989296c877f0e4bc7e7906c8602a lib/WWW/Restaurant/DE/Munich/Edison/Menu/Lunch.pm
+SHA1 44495a9d7c02d4e20ade9e545b3b2a77f7dd6960 lib/WWW/Restaurant/Menu.pm
+SHA1 8fbfa32923cde8dd3596ac8474d5c7e2991fce96 lib/WWW/Restaurant/Menu/Item.pm
+SHA1 67f47dacae1eb88be91effb1e887bf111dcab54f lib/WWW/Restaurant/Menu/Overview.pod
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.2.4 (GNU/Linux)
 
-iD8DBQFAeuFoaWlsL2XXXh8RAtx0AKCCNCP/BF/Qhps6A350VS4ZzB2ZVgCfXO/S
-pBd/c+9PhekmndGNLGppnz4=
-=vC9W
+iD8DBQFB6UDqaWlsL2XXXh8RAq7hAJ49oVKgIKGGU6mmXR2GAJgSnp+tegCfWXoe
+/JE7TkA0Kqqcs6XV7ix+BhA=
+=R2Ut
 -----END PGP SIGNATURE-----
