@@ -1,0 +1,33 @@
+This file contains message digests of all files listed in MANIFEST,
+signed via the Module::Signature module, version 0.35.
+
+To verify the content in this distribution, first make sure you have
+Module::Signature installed, then type:
+
+    % cpansign -v
+
+It would check each file's integrity, as well as the signature's
+validity.  If "==> Signature verified OK! <==" is not displayed,
+the distribution may already have been compromised, and you should
+not run its Makefile.PL or Build.PL.
+
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+SHA1 bbfaf94887478a1e5005db1be6df03fcf0089a57 Build.PL
+SHA1 0da2dfdcbe6a2666c057c526f08fefbc92e2febd CHANGES
+SHA1 aeee938cd40b41d421cd21d4abda7a738544b72f MANIFEST
+SHA1 13e6d36e41333271b0df0f526dea571be6bf27b9 META.yml
+SHA1 7e9e2553e95913392d02f7841987ce8b9fb01d1d Makefile.PL
+SHA1 cd710479e765af03e168c19e1fe132a69d07b359 README
+SHA1 20d05e9c9c7ac0d9a1c418c9189ec3f6a8a6da73 lib/WWW/Restaurant/DE/Munich/Edison/Menu/Lunch.pm
+SHA1 700d1a46014f9f6610de8c635009ae1ea491bd21 lib/WWW/Restaurant/Menu.pm
+SHA1 c9a3d0b0058024ba805334c6054d2a0574585eaf lib/WWW/Restaurant/Menu/Item.pm
+SHA1 daacba8116f5845d7dbd8fe2374fcfc8bff5b235 lib/WWW/Restaurant/Menu/Overview.pod
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.2.4 (GNU/Linux)
+
+iD8DBQFAeuFoaWlsL2XXXh8RAtx0AKCCNCP/BF/Qhps6A350VS4ZzB2ZVgCfXO/S
+pBd/c+9PhekmndGNLGppnz4=
+=vC9W
+-----END PGP SIGNATURE-----
